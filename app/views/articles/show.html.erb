@@ -1,0 +1,8 @@
+<h1>Article</h1>
+
+<p><strong>Title: </strong><%= @article.title%></p>
+<p><strong>Description: </strong><%= @article.description%></p>
+<p><%= link_to('Edit', edit_article_path(@article))%> </p>
+<p><%= link_to("Delete",article_path(@article), method: :delete, data: {confirm: 'Are you sure to delete'} )%></p>
+<br>
+<p><%= link_to("Listing of all Articles",articles_path)%> </p>
