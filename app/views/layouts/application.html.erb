@@ -11,9 +11,10 @@
 
   <body class="d-flex flex-column">
     <%= render 'layouts/navbar'%>
-    <% flash.each do |name, msg| %>
-      <%= msg %>
-    <% end %>
-    <%= yield %>
+    <div id="page-content">
+      <%= render 'layouts/flash_messages'%>
+      <%= yield %>
+    </div>
+    <%= render 'layouts/footer'%>
   </body>
 </html>
