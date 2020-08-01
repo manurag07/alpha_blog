@@ -1,5 +1,6 @@
-<div class="container">
+<h1 class="text-center mt-4">Feedback</h1>
 
+<div class="container">
   <div class="row justify-content-center">
      <div class="col-10">
        <%= render 'shared/error_display', obj: @feedback%>
@@ -7,14 +8,17 @@
          <div class="form-group row">
            <%= f.label :title, class: "col-2 col-form-label text-light" %>
            <div class="col-10">
-             <%= f.text_field :title, class: "form-control shadow rounded", placeholder: "Title of feedback" %>
+             <%= f.text_field :title, class: "form-control shadow rounded" %>
            </div>
          </div>
          <div class="form-group row">
           <%= f.label :description, class: "col-2 col-form-label text-light" %>
           <div class="col-10">
-            <%= f.text_area :description, rows: 10, class: "form-control shadow rounded", placeholder: "Description for the feedback" %>
+            <%= f.text_area :description, rows: 10, class: "form-control shadow rounded" %>
           </div>
+
+        <%= f.hidden_field :user_id, value: current_user.id %>
+
         </div>
         <div class="form-group row justify-content-center">
         <%= f.submit 'Send feedback', class: "btn btn-outline-light btn-lg" %>
