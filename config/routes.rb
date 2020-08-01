@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   get 'pages/about'
   get 'feedbacks', to: 'feedback#new'
   post 'feedbacks', to: 'feedback#create'
-  # root to: 'articles/index'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  get 'search_username', to: 'feedback#search_username'
+  post 'display_username', to: 'feedback#display_username'
   resources :articles
   get 'signup', to: 'users#new'
   resources :users, except: [:new]

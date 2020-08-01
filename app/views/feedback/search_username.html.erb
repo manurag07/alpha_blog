@@ -1,0 +1,26 @@
+<h1 class="text-center mt-4">Search Username</h1>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-10">
+      <%= form_tag '/display_username', class: 'shadow p-3 mb-3 bg-info rounded' do %>
+
+        <div class="form-group row">
+          <div class="col-5">
+            <%= email_field_tag 'email', '', class: "form-control shadow rounded", placeholder: 'Enter your email address' %>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-5">
+            <%= password_field_tag 'password', '', class: "form-control shadow rounded", placeholder: 'Enter your password'%>
+          </div>
+        </div>
+
+          <div class="form-group row col-5">
+            <%= submit_tag 'Know your username', class: 'btn btn-outline-light btn-lg'%>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>

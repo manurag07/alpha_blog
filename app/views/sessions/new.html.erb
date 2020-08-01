@@ -20,6 +20,7 @@
         <div class="form-group row justify-content-center">
         <%= f.submit 'Log in', class: "btn btn-outline-light btn-lg" %>
       </div>
+      <%= link_to 'Forgot Username', search_username_path, class: "text-light" %>
     <% end %>
   </div>
   <%= link_to '[ Cancel and return to articles listing ]', articles_path, class: "text-info" %>
