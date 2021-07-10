@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by_username(params[:session][:username])
-    if user&.authenticate(params[:session][:password])
+    if verify_recaptcha(model: @user) && user&.authenticate(params[:session][:password])
       flash[:notice] = 'You logged in successfully'
       session[:user_id] = user.id
       redirect_to user

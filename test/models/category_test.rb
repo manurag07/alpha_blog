@@ -11,12 +11,12 @@ class CategoryTest < ActiveSupport::TestCase
   end
 
   test 'name should be present' do
-    @category.name = ' '
+    @category.name = ''
     assert_not @category.valid?
   end
 
   test 'name should be uniq' do
-    @category.save
+    @category.save!
     @category2 = Category.new(name: 'sport')
     assert_not @category2.valid?
   end

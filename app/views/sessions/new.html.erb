@@ -17,8 +17,9 @@
              <%= f.password_field :password, class: "form-control shadow rounded", placeholder: "Enter your password" %>
            </div>
          </div>
+           <%= recaptcha_tags(action: 'login', site_key: ENV['GOOGLE_SITE_KEY']) %>
         <div class="form-group row justify-content-center">
-        <%= f.submit 'Log in', class: "btn btn-outline-light btn-lg" %>
+        <%= f.submit 'Log in', class: "btn btn-primary" %>
       </div>
       <%= link_to 'Forgot Username', search_username_path, class: "text-light" %>
     <% end %>
