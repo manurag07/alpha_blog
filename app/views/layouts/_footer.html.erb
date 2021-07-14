@@ -1,7 +1,7 @@
 <footer id="sticky-footer" class="py-4 bg-dark text-white">
   <div class="container text-center">
       <small>Copyright &copy; Anurag Mishra.All Rights Reserved </small>
-    <% if logged_in? %>
+    <% if current_user %>
       |<small><%= link_to ' Feedback About Website ', feedbacks_path, class: 'text-green' %></small>
     <%end%>
   </div>

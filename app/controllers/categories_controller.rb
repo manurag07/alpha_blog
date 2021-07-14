@@ -59,9 +59,9 @@ class CategoriesController < ApplicationController
   end
 
   def should_admin
-    unless logged_in? && current_user.admin?
-      flash[:alert] = 'Only admin can create category'
-      redirect_to categories_path
-    end
+    return if current_user&.admin?
+
+    flash[:alert] = 'Only admin can create category'
+    redirect_to categories_path
   end
 end

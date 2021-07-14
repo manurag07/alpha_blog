@@ -11,7 +11,7 @@
             </p>
           </h5>
         </div>
-        <% if logged_in? && current_user.admin? %>
+        <% if current_user && current_user.admin? %>
           <p class="card-text">
             <%= link_to "Edit category", edit_category_path(category), class: "btn btn-outline-info" %>
             <%= link_to "Delete category", category_path(category), class: "btn btn-outline-danger", method: :delete %>

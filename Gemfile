@@ -65,3 +65,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 #for recaptcha
 gem "recaptcha"
+
+gem 'devise'
+
+gem 'devise-bootstrap-views', '~> 1.0'

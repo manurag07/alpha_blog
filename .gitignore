@@ -42,3 +42,6 @@ yarn-debug.log*
 
 # env file
 .env
+
+# Test file
+/test/*

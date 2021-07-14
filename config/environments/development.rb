@@ -53,6 +53,18 @@ Rails.application.configure do
   # Suppress logger output for asset requests.
   config.assets.quiet = true
 
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  ActionMailer::Base.smtp_settings = {
+    user_name: ENV['SENDGRID_USERNAME'],
+    password: ENV['SENDGRID_PASSWORD'],
+    domain: 'anuragsblog.herokuapp.com',
+    address: 'smtp.sendgrid.net',
+    port: 587,
+    authentication: :plain,
+    enable_starttls_auto: true
+  }
+
   # Raises error for missing translations.
   # config.action_view.raise_on_missing_translations = true
 

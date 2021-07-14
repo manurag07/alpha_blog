@@ -20,7 +20,7 @@
             <%= pluralize(user.articles.count, "article") %>
           </p>
           <%= link_to "View profile", user, class: "btn btn-outline-success" %>
-          <% if logged_in? %>
+          <% if current_user %>
             <% if user == current_user %>
               <%= link_to "Edit profile", edit_user_path(user), class: "btn btn-outline-info" %>
             <% elsif current_user.admin? %>
