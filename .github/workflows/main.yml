@@ -4,11 +4,11 @@ name: CI
 
 # Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the master branch
+  # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ master ]
+    branches: [ main, staging ]
   pull_request:
-    branches: [ master ]
+    branches: [ main, staging ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -23,40 +23,32 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      # - uses: actions/checkout@v2
-      - name: 'Setup ruby'
-        uses: ruby/setup-ruby@v1.81.0
+      - uses: actions/checkout@v2
+      
+      # Project Dependencies
+      - uses: actions/setup-ruby@v1
         with:
-          ruby-version: 2.6.3
-
-      - uses: Borales/actions-yarn@v2.3.0
-        with:
-          cmd: install
-
-      - name: Install Dependencies
+          ruby-version: 3.0.2
+          
+      - name: bundle install
         run: |
-          # sudo apt install -yqq libpq-dev
-          gem install bundler
-      - name: Install Gems
-        run: |
-          bundle install
-      - name: Prepare Database
-        run: |
-          bundle exec rails db:prepare
-      - name: Run Tests
-        # env:
-        #   DATABASE_URL: postgres://postgres:@localhost:5432/databasename
-        #   RAILS_MASTER_KEY: ${{secrets.RAILS_MASTER_KEY}}
-        run: |
-          bundle exec rails test
-
+          bundle check || bundle install
+          
+      - name: Assets precompile
+        run: bundle exec rails assets:precompile
+          
+      # Linting
+      - run: yarn install
+      
+      - name: rubocop
+        run: bundle exec rubocop
 
       # Runs a single command using the runners shell
       # - name: Run a one-line script
-      #   run: echo Hello, world!
-      #
-      # # Runs a set of commands using the runners shell
+      #  run: echo Hello, world!
+
+      # Runs a set of commands using the runners shell
       # - name: Run a multi-line script
-      #   run: |
-      #     echo Add other actions to build,
-      #     echo test, and deploy your project.
+     # run: |
+     #     echo Add other actions to build,
+      #    echo test, and deploy your project.
