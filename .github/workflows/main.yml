@@ -9,5 +9,6 @@ jobs:
       with:
         ruby-version: 2.6.3 # Not needed with a .ruby-version file
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+    - run: bundle exec yarn install --check-files
     - run: bundle exec rails assets:precompile
     - run: bundle exec rubocop
