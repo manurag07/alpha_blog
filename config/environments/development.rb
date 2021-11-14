@@ -53,12 +53,14 @@ Rails.application.configure do
   # Suppress logger output for asset requests.
   config.assets.quiet = true
 
+  config.action_mailer.perform_deliveries = true
+
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
   ActionMailer::Base.smtp_settings = {
     user_name: ENV['SENDGRID_USERNAME'],
     password: ENV['SENDGRID_PASSWORD'],
-    domain: 'anuragsblog.herokuapp.com',
+    domain: 'herokuapp.com',
     address: 'smtp.sendgrid.net',
     port: 587,
     authentication: :plain,
