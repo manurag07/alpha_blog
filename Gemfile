@@ -69,3 +69,9 @@ gem "recaptcha"
 gem 'devise'
 
 gem 'devise-bootstrap-views', '~> 1.0'
+
+gem 'devise-two-factor'
+
+gem 'rqrcode'
+
+gem 'simple_form'

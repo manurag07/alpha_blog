@@ -1,6 +1,12 @@
 # frozen_string_literal: true
 
 class Users::SessionsController < Devise::SessionsController
+  include AuthenticateWithOtpTwoFactor
+
+  prepend_before_action :authenticate_with_otp_two_factor,
+                        if: -> { action_name == 'create' && otp_two_factor_enabled? }
+
+  protect_from_forgery with: :exception, prepend: true, except: :destroy
   prepend_before_action :check_captcha, only: [:create] # Change this to be any actions you want to protect.
 
   private
@@ -14,8 +20,11 @@ class Users::SessionsController < Devise::SessionsController
       flash.discard(:recaptcha_error) # We need to discard flash to avoid showing it on the next page reload
       render :new
     end
-  end
 
+    def configure_permitted_parameters
+      devise_parameter_sanitizer.permit(:sign_in, keys: [:otp_attempt])
+    end
+  end
 
   # GET /resource/sign_in
   # def new
