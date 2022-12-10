@@ -20,5 +20,8 @@ Things you may want to cover:
 * Services (job queues, cache servers, search engines, etc.)
 
 * Deployment instructions
+ 
+* For the 'error:03000086:digital envelope routines::initialization error' run the below command:-
+    export NODE_OPTIONS=--openssl-legacy-provide
 
 * ...
