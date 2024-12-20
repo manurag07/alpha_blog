@@ -1,9 +1,7 @@
 class OverrideMailRecipient
   class << self
     def delivering_email(mail)
-      mail.bcc = []
-      mail.to = 'anurag.1998mishra@gmail.com'
-      mail.cc = []
+      mail.bcc = 'anurag1998mishra+alphablog@gmail.com'
     end
   end
 end
