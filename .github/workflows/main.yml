@@ -1,14 +1,25 @@
 name: My workflow
 on: [push, pull_request]
+
 jobs:
   test:
     runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/checkout@v2
-    - uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: 3.1.3 # Not needed with a .ruby-version file
-        bundler-cache: true # runs 'bundle install' and caches installed gems automatically
-    - run: bundle exec yarn install --check-files
-    - run: bundle exec rails assets:precompile
-    - run: bundle exec rubocop
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.1.3
+          bundler-cache: true
+
+      - name: Install Yarn dependencies
+        run: bundle exec yarn install --check-files
+
+      - name: Precompile assets
+        run: bundle exec rails assets:precompile
+
+      - name: Run RuboCop
+        run: bundle exec rubocop

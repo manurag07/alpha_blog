@@ -11,11 +11,11 @@ class User < ApplicationRecord
   has_many :articles, dependent: :destroy
 
   # Ensure that backup codes can be serialized
-  serialize :otp_backup_codes, JSON
+  serialize :otp_backup_codes, coder: JSON
 
   attr_accessor :otp_plain_backup_codes
 
-  # Generate an OTP secret it it does not already exist
+  # Generate an OTP secret it does not already exist
   def generate_two_factor_secret_if_missing!
     return unless otp_secret.nil?
     update!(otp_secret: User.generate_otp_secret)
