@@ -40,6 +40,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'sqlite3', '~> 1.4'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
@@ -56,11 +57,9 @@ group :development do
   # gem 'rubocop'
 end
 
-# group :production do
-#   gem 'pg'
-# end
-
-gem 'sqlite3', '~> 1.4'
+group :production do
+  gem 'pg'
+end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver

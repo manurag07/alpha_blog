@@ -171,6 +171,7 @@ GEM
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
     orm_adapter (0.5.0)
+    pg (1.5.9)
     popper_js (2.11.6)
     pry (0.14.1)
       coderay (~> 1.1)
@@ -318,6 +319,7 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   jsbundling-rails
   listen (~> 3.2)
+  pg
   pry
   puma (~> 4.1)
   rails (~> 7.1)
