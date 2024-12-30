@@ -2,7 +2,8 @@
   <div class="container text-center">
       <small>Copyright &copy; Anurag Mishra.All Rights Reserved </small>
     <% if current_user %>
-      |<small><%= link_to ' Feedback About Website ', feedbacks_path, class: 'text-green' %></small>
+      | <small><%= link_to 'Feedback About Website', feedbacks_path, class: 'text-green' %></small>
     <%end%>
+    | <small><%= link_to "Linkedin", "https://www.linkedin.com/in/anuraagmisshra/" %></small>
   </div>
 </footer>
