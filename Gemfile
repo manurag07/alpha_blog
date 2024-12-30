@@ -23,7 +23,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 # gem "turbo-rails"
 
-gem 'will_paginate', '~> 3.1.0'
+gem 'will_paginate', '~> 4.0'
 
 gem "sprockets-rails"
 gem 'bootstrap', '~> 5.2.2'
