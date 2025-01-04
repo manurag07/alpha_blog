@@ -14,6 +14,13 @@
         </div><br />
 
         <div class="form-group row">
+          <%= f.label :username, class: "col-2 col-form-label text-light" %>
+          <div class="col-8">
+            <%= f.text_field :username, autofocus: true, autocomplete: 'username', class: 'form-control shadow rounded' %>
+          </div>
+        </div><br />
+
+        <div class="form-group row">
           <%= f.label :password, class: "col-2 col-form-label text-light" %>
           <div class="col-8">
             <%= f.password_field :password, autocomplete: 'current-password', class: 'form-control shadow rounded' %>

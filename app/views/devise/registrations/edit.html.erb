@@ -2,49 +2,39 @@
 
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-10">
+    <div class="col-10 d-grid gap-3">
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "shadow p-3 mb-3 bg-dark rounded" }) do |f| %>
         <%= bootstrap_devise_error_messages! %>
 
-        <div class="form-group row">
+        <div class="form-group row p-2">
           <%= f.label :email, class: "col-2 col-form-label text-light" %>
           <div class="col-8">
             <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control shadow rounded' %>
           </div>
         </div>
 
-        <div class="form-group row">
-          <%= f.label :password, class: "col-2 col-form-label text-light" %>
+        <div class="form-group row p-2">
+          <%= f.label :username, class: "col-2 col-form-label text-light" %>
           <div class="col-8">
-            <%= f.password_field :password, autocomplete: 'new-password', class: 'form-control shadow rounded' %>
+            <%= f.text_field :username, autofocus: true, autocomplete: 'username', class: 'form-control shadow rounded' %>
           </div>
         </div>
 
-        <div class="form-group row">
-          <%= f.label :password_confirmation, class: "col-2 col-form-label text-light" %>
+        <div class="form-group row p-2">
+          <%= f.label :new_password, class: "col-2 col-form-label text-light" %>
           <div class="col-8">
-            <%= f.password_field :password_confirmation, autocomplete: 'new-password', class: 'form-control shadow rounded'  %>
+            <%= f.password_field :new_password, autocomplete: 'new-password', class: 'form-control shadow rounded' %>
           </div>
         </div>
 
-        <br />
-        <div class="card">
-          <div class="card-header">
-            Two factor authentication
-          </div>
-          <div class="card-body">
-            <% if current_user.otp_required_for_login %>
-              <p>Two factor authentication is enabled.</p>
-              <p><%= link_to('Disable Two Factor Authentication', two_factor_settings_path, class: 'btn btn-danger', method: :delete, data: {confirm: 'Are you sure you want to disable two factor authentication?'}) %></p>
-            <% else %>
-              <p>Two factor authentication is NOT enabled.</p>
-              <p><%= link_to('Enable Two Factor Authentication', new_two_factor_settings_path, class: 'btn btn-primary') %></p>
-            <% end %>
+        <div class="form-group row p-2">
+          <%= f.label :new_password_confirmation, class: "col-2 col-form-label text-light" %>
+          <div class="col-8">
+            <%= f.password_field :new_password_confirmation, autocomplete: 'new-password', class: 'form-control shadow rounded'  %>
           </div>
         </div>
-        <br />
 
-        <div class="form-group row">
+        <div class="form-group row p-2">
           <%= f.label :current_password, class: "col-2 col-form-label text-light" %>
           <div class="col-8">
             <%= f.password_field :current_password, autocomplete: 'current-password', class: 'form-control shadow rounded' %>
@@ -53,12 +43,12 @@
 
         <div class="col-8">
           <small class="form-text text-light"><%= t('.we_need_your_current_password_to_confirm_your_changes') %></small>
-        </div><br>
+        </div>
 
-        <div class="form-group row col-8">
+        <div class="form-group row col-8 p-2">
           <%= f.submit t('.update'), class: "btn btn-outline-light btn-lg" %><br><br>
         </div>
-          <%= link_to t('.back'), :back, class: "btn btn-outline-light btn-lg" %>
+          <%= link_to t('.back'), :back, class: "btn btn-outline-light btn-lg p-2" %>
       <% end %>
     </div>
   </div>

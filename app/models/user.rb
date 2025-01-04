@@ -9,6 +9,8 @@ class User < ApplicationRecord
          otp_secret_encryption_key: ENV['OTP_SECRET_KEY']
 
   has_many :articles, dependent: :destroy
+  validates :username, presence: true, length: { minimum: 3, maximum: 15 }
+
 
   # Ensure that backup codes can be serialized
   serialize :otp_backup_codes, coder: JSON
