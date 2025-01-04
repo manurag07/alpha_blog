@@ -10,5 +10,5 @@ Rails.application.routes.draw do
   resources :articles
   resources :users, except: [:new]
   resources :categories
-  resource :two_factor_settings, except: %i[index show]
+  resource :two_factor_settings, except: %i[show]
 end
