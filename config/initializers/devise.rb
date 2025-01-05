@@ -10,7 +10,7 @@
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
   config.warden do |manager|
-    manager.default_strategies(:scope => :user).unshift :two_factor_authenticatable
+    manager.default_strategies(scope: :user).unshift :two_factor_authenticatable
   end
 
   # The secret key used by Devise. Devise uses this key to generate
@@ -33,7 +33,7 @@ Devise.setup do |config|
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
 
-  ActionMailer::Base.default_url_options[:host] = "anuraagmisshra.com"
+  ActionMailer::Base.default_url_options[:host] = 'anuraagmisshra.com'
 
   # Configure the parent class responsible to send e-mails.
   # config.parent_mailer = 'ActionMailer::Base'
