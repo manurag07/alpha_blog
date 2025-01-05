@@ -5,8 +5,10 @@ AllCops:
     - script/*
     - cookbooks/**/*
     - bin/*
-  TargetRubyVersion: 2.5.3
-  TargetRailsVersion: 6.0.3.1
+    - db/**/*
+    - config/**/*
+  TargetRubyVersion: 3.3.4
+  TargetRailsVersion: 8.0.1
 
 Metrics/ClassLength:
   Enabled: true
@@ -22,47 +24,46 @@ Metrics/LineLength:
   URISchemes:
     - http
     - https
-
-Metrics/MethodLength:
-  Enabled: Yes
-  Max: 15
-  CountComments: false
-
-Metrics/ParameterLists:
-  Max: 5
-
-Metrics/ModuleLength:
-  Enabled: Yes
-  Max: 100
-  CountComments: false
-
-Rails:
-  Enabled: true
-
-Rails/Output:
-  Enabled: true
-
-Rails/SaveBang:
-  Enabled: true
-
-Style/Documentation:
+Documentation:
   Enabled: false
 
-Style/DocumentationMethod:
-  Enabled: false
-
-Layout:
-  EnforcedStyle: leading
-
-Naming:
-  Enabled: true
-
-Style/FrozenStringLiteralComment:
-  Enabled: false
-
-Style/StringLiterals:
-  Enabled: false
-  EnforcedStyle: double_quotes
-
-Style/Documentation:
-  Enabled: false
+#Metrics/MethodLength:
+#  Enabled: Yes
+#  Max: 15
+#  CountComments: false
+#
+#Metrics/ParameterLists:
+#  Max: 5
+#
+#Metrics/ModuleLength:
+#  Enabled: Yes
+#  Max: 100
+#  CountComments: false
+#
+#Rails:
+#  Enabled: true
+#
+#Rails/Output:
+#  Enabled: true
+#
+#Rails/SaveBang:
+#  Enabled: true
+#
+#Style/Documentation:
+#  Enabled: false
+#
+#Style/DocumentationMethod:
+#  Enabled: false
+#
+#Layout:
+#  EnforcedStyle: leading
+#
+#Naming:
+#  Enabled: true
+#
+#Style/FrozenStringLiteralComment:
+#  Enabled: false
+#
+#Style/StringLiterals:
+#  Enabled: false
+#  EnforcedStyle: double_quotes

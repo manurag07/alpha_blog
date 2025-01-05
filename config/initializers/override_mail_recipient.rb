@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class OverrideMailRecipient
   class << self
     def delivering_email(mail)

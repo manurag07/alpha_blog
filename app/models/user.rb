@@ -11,7 +11,6 @@ class User < ApplicationRecord
   has_many :articles, dependent: :destroy
   validates :username, presence: true, length: { minimum: 3, maximum: 15 }
 
-
   # Ensure that backup codes can be serialized
   serialize :otp_backup_codes, coder: JSON
 
@@ -20,6 +19,7 @@ class User < ApplicationRecord
   # Generate an OTP secret it does not already exist
   def generate_two_factor_secret_if_missing!
     return unless otp_secret.nil?
+
     update!(otp_secret: User.generate_otp_secret)
   end
 

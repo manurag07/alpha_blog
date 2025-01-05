@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class PagesControllerTest < ActionDispatch::IntegrationTest
@@ -10,5 +12,4 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
   #   get pages_about_url
   #   assert_response :success
   # end
-
 end

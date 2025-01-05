@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class ArticlesControllerTest < ActionDispatch::IntegrationTest
@@ -5,5 +7,4 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
   #   get articles_index_url
   #   assert_response :success
   # end
-
 end

@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class CategoryTest < ActiveSupport::TestCase
-
   def setup
     @category = Category.new(name: 'sport')
   end
@@ -30,5 +31,4 @@ class CategoryTest < ActiveSupport::TestCase
     @category.name = 'as'
     assert_not @category.valid?
   end
-
 end
