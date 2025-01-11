@@ -6,11 +6,13 @@
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@popperjs/core": "^2.11.6",
     "@rails/actioncable": "^8.0.1",
+    "@rails/actiontext": "^8.0.100",
     "@rails/activestorage": "^8.0.1",
     "@rails/ujs": "^7.1.501",
     "bootstrap": "^5.2.3",
     "jquery": "^3.6.1",
     "popper.js": "^1.16.1",
+    "trix": "^2.1.12",
     "turbolinks": "^5.2.0"
   },
   "version": "0.1.0",

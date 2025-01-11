@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class TwoFactorSettingsController < ApplicationController
   before_action :authenticate_user!
 
@@ -18,7 +16,15 @@ class TwoFactorSettingsController < ApplicationController
       return render :new
     end
 
-    enable_two_factor_auth
+    if current_user.validate_and_consume_otp!(enable_2fa_params[:code])
+      current_user.enable_two_factor!
+
+      flash[:notice] = 'Successfully enabled two factor authentication, please make note of your backup codes.'
+      redirect_to edit_two_factor_settings_path
+    else
+      flash.now[:alert] = 'Incorrect Code'
+      render :new
+    end
   end
 
   def edit
@@ -54,7 +60,7 @@ class TwoFactorSettingsController < ApplicationController
 
   def enable_two_factor_auth
     if current_user.validate_and_consume_otp!(enable_2fa_params[:code])
-      current_user.enable_two_factor! 
+      current_user.enable_two_factor!
 
       flash[:notice] = 'Successfully enabled two factor authentication, please make note of your backup codes.'
       redirect_to edit_two_factor_settings_path
